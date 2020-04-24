@@ -1,0 +1,49 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto+Mono:300,400&display=swap");
+
+* {
+    outline: none;
+}
+
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
+        "Droid Sans", "Helvetica Neue", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+html,
+body {
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+p {
+    margin: 0;
+}
+
+#root {
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+}
+
+.dark.str-chat {
+    background: #1a1a1a;
+    img {
+        color: white;
+    }
+}
+
+
+.str-chat__container {
+    width: 100%;
+}
+

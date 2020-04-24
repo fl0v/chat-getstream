@@ -15,7 +15,7 @@ import {
 import { extractEmoji } from "extract-emoji";
 import Reward from "react-rewards";
 import "stream-chat-react/dist/css/index.css";
-import ChatContext from "/src/contexts/ChatContext";
+import ChatContext from "contexts/ChatContext";
 import ChatHeader from "./ChatHeader";
 import "./styles.scss";
 
@@ -43,14 +43,13 @@ const wowKeywords = ["woah", "wow", "omg", "wtf"];
 class LiveChat extends Component {
   static contextType = ChatContext;
 
-  constructor(props) {
-    super(props);
-    console.log(this.context);
+  constructor(props, context) {
+    super(props, context);
     chatClient.disconnect();
     chatClient.setUser(
       {
         id: userId,
-        //name: this.context.username,
+        name: this.context.username,
         image: userImage
       },
       //userToken
@@ -160,8 +159,7 @@ class LiveChat extends Component {
           <Channel channel={this.state.channel}>
             <div className="emoji-wrapper">
               <Reward
-                decay={1}
-                decay={2000}
+                decay={1000}
                 zIndex={999}
                 ref={this.setRewardRef}
                 type="emoji"

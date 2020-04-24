@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import ChatContext from "/src/contexts/ChatContext";
-import User from "/src/components/User";
+import ChatContext from "contexts/ChatContext";
+import User from "components/User";
 
 const urlParams = new URLSearchParams(window.location.search);
-const userName = urlParams.get("user_name") || "";
+const userName = urlParams.get("user_name") || localStorage.getItem('username');
 
 class ChatProvider extends Component {
   state = {
@@ -29,6 +29,7 @@ class ChatProvider extends Component {
   }
 
   setUsername(u) {
+    localStorage.setItem('username',u);
     this.setState({
       username: u
     });
@@ -39,9 +40,10 @@ class ChatProvider extends Component {
   }
 
   render() {
-    const content = !this.hasUsername() ? <User /> : this.props.children;
     return (
-      <ChatContext.Provider value={this.state}>{content}</ChatContext.Provider>
+      <ChatContext.Provider value={this.state}>
+      { this.hasUsername() ? this.props.children : <User /> } 
+      </ChatContext.Provider>
     );
   }
 }

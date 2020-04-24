@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import ChatContext from "/src/contexts/ChatContext";
+import ChatContext from "contexts/ChatContext";
 import "./styles.scss";
 
 class User extends Component {
     static contextType = ChatContext;
-
+  
     handleSubmit = async (e) => {
         e.preventDefault();
         const data = new FormData(e.target);
@@ -18,16 +18,18 @@ class User extends Component {
             <div className='login-root'>
                 <div className='login-card'>
                     <form onSubmit={this.handleSubmit}>
+                        <p class="text-center">Enter your name to join chat</p>
                         {error}
                         <input
-                         type="text"
+                            type="text"
                             minLength='3'
                             name='username'
                             defaultValue={username}
-                            placeholder='Pick a username'
+                            placeholder='your name'
+                            className="username"
                         />
                         <button className='primary' type='submit'>
-                            Login
+                            Join
                         </button>
                     </form>
                 </div>
