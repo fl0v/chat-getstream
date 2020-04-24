@@ -10,6 +10,7 @@ import {
   MessageInput,
   MessageInputLarge,
   MessageLivestream,
+  MessageSimple,
   Message
 } from "stream-chat-react";
 import { extractEmoji } from "extract-emoji";
@@ -52,10 +53,12 @@ class LiveChat extends Component {
         name: this.context.username,
         image: userImage
       },
-      //userToken
+      userToken
+      /*
       process.env.NODE_ENV === "development"
         ? chatClient.devToken(userId)
         : userToken
+    */
     );
     this.state = {
       channel: chatClient.channel("livestream", channelId, {
@@ -167,17 +170,17 @@ class LiveChat extends Component {
               />
             </div>
             <Window hideOnThread>
-              <ChatHeader label="Live" data={this.state.channel.data} />
-              {/* <ChannelHeader live /> */}
-
-              <MessageList Message={this.renderMessage} />
-              {/* <MessageList noGroupByUser Message={MessageLivestream} /> */}
-
-              <MessageInput />
-              {/* <MessageInput Input={MessageInputLarge} /> */}
+                <ChatHeader label="Live" data={this.state.channel.data} />
+                <MessageList Message={MessageLivestream} />
+                <MessageInput />
+                {/*
+                <ChannelHeader live />
+                <MessageList Message={this.renderMessage} />
+                <MessageList noGroupByUser Message={MessageLivestream} />
+                <MessageInput Input={MessageInputLarge} />
+                */}
             </Window>
-
-            <Thread Message={Message} fullWidth />
+            <Thread Message={MessageSimple} fullWidth />
             {/* <Thread Message={MessageLivestream} fullWidth /> */}
           </Channel>
         </Chat>
