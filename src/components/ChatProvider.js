@@ -40,9 +40,10 @@ class ChatProvider extends Component {
   }
 
   render() {
+    const { children } = this.props;
     return (
       <ChatContext.Provider value={this.state}>
-      { this.hasUsername() ? this.props.children : <User /> } 
+      { this.hasUsername() ? children : <User /> } 
       </ChatContext.Provider>
     );
   }
