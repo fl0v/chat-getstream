@@ -18,7 +18,7 @@ class User extends Component {
             <div className='login-root'>
                 <div className='login-card'>
                     <form onSubmit={this.handleSubmit}>
-                        <p class="text-center">Enter your name to join chat</p>
+                        <p className="text-center">Enter your name to join chat</p>
                         {error}
                         <input
                             type="text"
