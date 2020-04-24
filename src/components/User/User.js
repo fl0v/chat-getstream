@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import ChatContext from "contexts/ChatContext";
+import ChatContext from "/src/contexts/ChatContext";
 import "./styles.scss";
 
 class User extends Component {
@@ -12,7 +12,7 @@ class User extends Component {
         this.context.setUsername(username);
     };
 
-    render() {
+    render() {        
         const { error, username } = this.context;
         return (
             <div className='login-root'>
@@ -20,13 +20,14 @@ class User extends Component {
                     <form onSubmit={this.handleSubmit}>
                         {error}
                         <input
+                         type="text"
                             minLength='3'
                             name='username'
-                            value={username}
+                            defaultValue={username}
                             placeholder='Pick a username'
                         />
                         <button className='primary' type='submit'>
-                            {loading ? <Spinner size='16px' spinnerWidth={2} spinnerColor='white' /> : "Login"}
+                            Login
                         </button>
                     </form>
                 </div>
